@@ -56,22 +56,22 @@ st.markdown("""
         margin: 0;
     }
 
-    /* ── Input card ── */
-    .input-card {
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-radius: 18px;
-        padding: 1.6rem 1.8rem;
-        margin: 1.6rem 0 1.2rem;
-        box-shadow: 0 2px 12px rgba(79,70,229,0.06);
-    }
+    /* ── Input label ── */
     .input-label {
         font-size: 0.72rem;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         color: #9ca3af;
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.4rem;
+    }
+    div[data-testid="stTextInput"] {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        padding: 1rem 1.2rem;
+        box-shadow: 0 2px 12px rgba(79,70,229,0.06);
+        margin-bottom: 1.2rem;
     }
     div[data-testid="stTextInput"] input {
         background: #f9fafb !important;
@@ -348,14 +348,13 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Input ──────────────────────────────────────────────────────────────────────
-st.markdown("<div class='input-card'><div class='input-label'>Your Question</div>", unsafe_allow_html=True)
+st.markdown("<div class='input-label' style='margin-top:1.6rem'>Your Question</div>", unsafe_allow_html=True)
 question = st.text_input(
     "question_input",
     value=st.session_state.selected_question,
     placeholder="e.g.  Book it   /   What is machine learning?   /   Send that file",
     label_visibility="collapsed"
 )
-st.markdown("</div>", unsafe_allow_html=True)
 
 # ── Analysis ───────────────────────────────────────────────────────────────────
 if question and question.strip():
